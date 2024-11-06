@@ -8,7 +8,8 @@ extends Node2D
 
 @export var platform_scenes := [
 	preload("res://Small Platform.tscn"),
-	preload("res://Big_Platform.tscn")
+	preload("res://Big_Platform.tscn"),
+	preload("res://Water Platform.tscn")
 ]
 
 
