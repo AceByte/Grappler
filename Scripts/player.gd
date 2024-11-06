@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 func handle_normal_movement(delta: float):
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	# Allow direction change only if on the ground
 	if is_on_floor():
 		if direction != 0:
 			velocity.x += direction * acceleration_rate * delta
