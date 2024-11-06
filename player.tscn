@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0tn0nxxa5qm6"]
-
-[ext_resource type="Script" path="res://Scripts/Procedual Generation.gd" id="1_oskho"]
+[gd_scene load_steps=5 format=3 uid="uid://0tn0nxxa5qm6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
 
@@ -14,7 +12,6 @@ size = Vector2(64, 64)
 size = Vector2(64, 64)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_oskho")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
