@@ -105,7 +105,7 @@ func handle_grappling(delta: float):
 	# Set is_swinging to true while the player is grappling
 	is_swinging = true
 
-	## If the player releases the swing button or is not grappling, reset swinging
+	# If the player releases the swing button or is not grappling, reset swinging
 	#if Input.is_action_just_released("ui_left") && Input.is_action_just_released("ui_right"):
 		#is_swinging = false
 		#swing_force = 0
