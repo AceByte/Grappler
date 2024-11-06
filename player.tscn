@@ -29,6 +29,7 @@ shape = SubResource("RectangleShape2D_puy1f")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, -61)
 script = ExtResource("1_pm86s")
+launch_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_knyyw")
