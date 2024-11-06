@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var rope_adjust_speed := 100.0
 @export var swing_force := 1000.0
 @export var launch_speed := 500
-@export var rope_stretch_factor := 0.5  # Amount the rope can stretch beyond max length
+@export var rope_stretch_factor := 0.5
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var grapple_point: Vector2 = Vector2.ZERO
@@ -19,7 +19,6 @@ var is_grappling := false
 var grapple_rope: Line2D
 var current_rope_length: float = 0.0
 
-# Added variable to check if the player is swinging
 var is_swinging: bool = false
 
 func _ready():
@@ -47,7 +46,6 @@ func _physics_process(delta: float) -> void:
 func handle_normal_movement(delta: float):
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	# Allow direction change only if on the ground
 	if is_on_floor():
 		if direction != 0:
 			velocity.x += direction * acceleration_rate * delta
