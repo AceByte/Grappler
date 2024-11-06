@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0tn0nxxa5qm6"]
+[gd_scene load_steps=7 format=3 uid="uid://0tn0nxxa5qm6"]
+
+[ext_resource type="Script" path="res://Scripts/Procedual Generation.gd" id="1_oskho"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_7o6fu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
 
@@ -12,6 +15,7 @@ size = Vector2(64, 64)
 size = Vector2(64, 64)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_oskho")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -25,7 +29,9 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_puy1f")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+top_level = true
 position = Vector2(0, -61)
+script = ExtResource("2_7o6fu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_knyyw")

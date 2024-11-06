@@ -11,86 +11,114 @@
 [ext_resource type="Texture2D" uid="uid://swre1fotgw5o" path="res://Tileset/bridge9.png" id="9_osg3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slonn"]
-size = Vector2(14, 30)
+size = Vector2(14, 30.5556)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e83g7"]
 size = Vector2(63, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuche"]
-size = Vector2(16, 31)
+size = Vector2(16, 31.9444)
 
 [node name="StaticBody2D" type="StaticBody2D"]
-position = Vector2(114, 49)
+position = Vector2(112, 50)
+scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-24, -2)
+position = Vector2(-32.6667, 0.25)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_slonn")
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-4.76837e-06, 0)
+scale = Vector2(1.5, 1.5)
 format = 2
 
 [node name="Water1" type="Sprite2D" parent="."]
-position = Vector2(-7, -10)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-11.3333, -11.3333)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ke0k0")
 
 [node name="Water2" type="Sprite2D" parent="."]
-position = Vector2(-7, 6)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-9.33334, 12.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_shxjt")
 
 [node name="Water3" type="Sprite2D" parent="."]
-position = Vector2(9, -10)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(12.6667, -11.3333)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ke0k0")
 
 [node name="Water4" type="Sprite2D" parent="."]
-position = Vector2(9, 6)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(14, 12.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_shxjt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(24, -25)
+position = Vector2(36.6667, -35.3333)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_p36fi")
 
 [node name="Bridge7" type="Sprite2D" parent="."]
-position = Vector2(24, -9)
-texture = ExtResource("4_es6lv")
-
-[node name="Bridge7" type="Sprite2D" parent="Bridge7"]
-position = Vector2(-47, 0)
+position = Vector2(36.6667, -11.3333)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_es6lv")
 
 [node name="Bridge8" type="Sprite2D" parent="."]
-position = Vector2(25, 22)
+position = Vector2(39.3333, 36.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_yprav")
 
 [node name="Bridge1" type="Sprite2D" parent="."]
-position = Vector2(24, 7)
+position = Vector2(36.6667, 12.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_icnym")
 flip_v = true
 
 [node name="Bridge2" type="Sprite2D" parent="."]
-position = Vector2(9, 22)
+position = Vector2(15.3333, 36.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_j6us7")
 
 [node name="Bridge6" type="Sprite2D" parent="."]
-position = Vector2(-7, 22)
+position = Vector2(-8.66667, 36.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_sfpaf")
 
 [node name="Bridge10" type="Sprite2D" parent="."]
-position = Vector2(-23, 22)
+position = Vector2(-32.6667, 36.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_osg3i")
 
 [node name="Bridge3" type="Sprite2D" parent="."]
-position = Vector2(-23, 6)
+position = Vector2(-32, 13.3333)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_icnym")
 flip_v = true
 
 [node name="Grass5" type="Sprite2D" parent="."]
-position = Vector2(-23, -25)
+position = Vector2(-32, -34.6667)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_p36fi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 19.5)
+position = Vector2(2.66667, 33.3333)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_e83g7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(24, -1.5)
+position = Vector2(36.6667, 0.625)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_cuche")
+
+[node name="Bridge9" type="Sprite2D" parent="."]
+position = Vector2(-32, -10.6667)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_es6lv")
