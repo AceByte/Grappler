@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cogi65p8dxkvb"]
+
+[ext_resource type="Texture2D" uid="uid://dhbgxd87f6bss" path="res://Tileset/platforms2.png" id="1_5hbl3"]
+[ext_resource type="Texture2D" uid="uid://dts8ry3twtgts" path="res://Tileset/platforms1.png" id="2_nrrf2"]
+[ext_resource type="Texture2D" uid="uid://87cf862is7sa" path="res://Tileset/platforms3.png" id="3_ug2tq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gpwc"]
+size = Vector2(121, 31)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(161, 121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 3.5)
+shape = SubResource("RectangleShape2D_4gpwc")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Platforms2" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5hbl3")
+
+[node name="Platforms3" type="Sprite2D" parent="."]
+position = Vector2(32, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5hbl3")
+
+[node name="Platforms4" type="Sprite2D" parent="."]
+position = Vector2(-32, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5hbl3")
+
+[node name="Platforms1" type="Sprite2D" parent="."]
+position = Vector2(-64, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nrrf2")
+
+[node name="Platforms5" type="Sprite2D" parent="."]
+position = Vector2(64, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ug2tq")

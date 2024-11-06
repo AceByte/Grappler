@@ -11,13 +11,17 @@ extends CharacterBody2D
 @export var rope_adjust_speed := 100.0
 @export var swing_force := 1000.0
 @export var launch_speed := 500
-@export var rope_stretch_factor := 0.5  # Amount the rope can stretch beyond max length
+@export var rope_stretch_factor := 0.5
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var grapple_point: Vector2 = Vector2.ZERO
 var is_grappling := false
 var grapple_rope: Line2D
 var current_rope_length: float = 0.0
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6587787cba1d658295781a74cb772b94e76ea149
 var is_swinging: bool = false
 var launch_direction: Vector2 = Vector2.ZERO
 

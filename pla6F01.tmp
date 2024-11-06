@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://0tn0nxxa5qm6"]
 
-[ext_resource type="Script" path="res://Scripts/Procedual Generation.gd" id="1_oskho"]
+[ext_resource type="Script" path="res://Procedual Generation.gd" id="1_oskho"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pm86s"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
@@ -31,8 +31,7 @@ shape = SubResource("RectangleShape2D_puy1f")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, -61)
 script = ExtResource("1_pm86s")
-swing_force = 500.0
-launch_speed = 3000
+launch_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_knyyw")
