@@ -18,10 +18,6 @@ var grapple_point: Vector2 = Vector2.ZERO
 var is_grappling := false
 var grapple_rope: Line2D
 var current_rope_length: float = 0.0
-<<<<<<< HEAD
-=======
-
->>>>>>> 6587787cba1d658295781a74cb772b94e76ea149
 var is_swinging: bool = false
 var launch_direction: Vector2 = Vector2.ZERO
 
