@@ -18,9 +18,8 @@ var grapple_point: Vector2 = Vector2.ZERO
 var is_grappling := false
 var grapple_rope: Line2D
 var current_rope_length: float = 0.0
-
-# Added variable to check if the player is swinging
 var is_swinging: bool = false
+var launch_direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	grapple_rope = Line2D.new()
@@ -31,7 +30,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if is_on_ceiling():
-		velocity.y*=-1
+		velocity.y *= -1
 	
 	if is_grappling:
 		handle_grappling(delta)
@@ -47,7 +46,6 @@ func _physics_process(delta: float) -> void:
 func handle_normal_movement(delta: float):
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	# Allow direction change only if on the ground
 	if is_on_floor():
 		if direction != 0:
 			velocity.x += direction * acceleration_rate * delta
@@ -61,6 +59,7 @@ func handle_normal_movement(delta: float):
 		velocity.y = jump_velocity
 
 	if is_on_floor():
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		var friction = friction_coefficient * gravity
 		if abs(velocity.x) > friction * delta:
 			velocity.x -= friction * delta * sign(velocity.x)
@@ -71,38 +70,30 @@ func handle_normal_movement(delta: float):
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 
 func handle_grappling(delta: float):
+	var input_direction = Input.get_axis("ui_left", "ui_right")
 	adjust_rope_length(delta)
 	
 	var to_grapple = grapple_point - global_position
 	var distance = to_grapple.length()
 	
-	# Normalized vectors
 	var rope_normal = to_grapple.normalized()
 	var tangent = Vector2(-rope_normal.y, rope_normal.x)
 	
-	# Apply gravity
 	velocity.y += gravity * delta
-	
-	# Player input for swinging, only apply if swinging
-	if is_swinging and position.y>grapple_point.y:
-		var input_direction = Input.get_axis("ui_left", "ui_right")
-		if input_direction != 0:
-			#Apply swinging force along the tangent direction
-			velocity += tangent * input_direction * swing_force * delta
-
-	# Rope constraint with stretch simulation
 	var stretch_amount = max(0, distance - current_rope_length)
 	var total_rope_length = current_rope_length + stretch_amount * rope_stretch_factor
+	
+	if is_swinging and position.y > grapple_point.y + ((total_rope_length/3)*2):
+		if input_direction != 0:
+			velocity += tangent * input_direction * swing_force * delta
 
 	if distance > total_rope_length:
 		global_position = grapple_point - rope_normal * total_rope_length
-		# Keep only the tangential component of velocity
 		velocity = velocity.project(tangent)
 
-	# Apply some damping to simulate air resistance
-	#velocity *= 0.99
+	launch_direction = -rope_normal.rotated(PI/4 * sign(velocity.dot(tangent)))
 
-	# Set is_swinging to true while the player is grappling
+	velocity *= 0.99
 	is_swinging = true
 
 func toggle_grapple():
@@ -112,9 +103,10 @@ func toggle_grapple():
 		fire_grapple()
 
 func fire_grapple():
+	gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.5
 	var mouse_pos = get_global_mouse_position()
 	var direction = (mouse_pos - global_position).normalized()
-	var max_distance = 1000  # Maximum raycast distance
+	var max_distance = 1000
 	
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + direction * max_distance)
@@ -127,11 +119,12 @@ func fire_grapple():
 		current_rope_length = min(current_rope_length, max_grapple_length)
 
 func release_grapple():
-	var input_direction = Input.get_axis("ui_left", "ui_right")
+	if is_grappling:
+		velocity = launch_direction * launch_speed
+	
 	is_grappling = false
-	velocity.x += launch_speed * input_direction
 	grapple_rope.clear_points()
-	is_swinging = false  # Reset swinging status when grapple is released
+	is_swinging = false
 
 func adjust_rope_length(delta: float):
 	var rope_adjust = Input.get_axis("ui_down", "ui_up")
