@@ -48,11 +48,23 @@ func generate_initial_chunks():
 func generate_chunk(chunk_id):
 	var start_x: int = chunk_id * chunk_size
 	var current_x_position: int = start_x
+	var previous_platform_end: float = -INF  # Track the end of the previous platform
+
+	# Define minimum horizontal and vertical distances
+	var min_horizontal_gap: int = 100  # Minimum distance between platforms horizontally
+	var max_horizontal_gap: int = 300  # Maximum horizontal gap for a varied but controlled appearance
+	var min_vertical_gap: int = 70
 
 	# Generate platforms for the chunk
 	while current_x_position < start_x + chunk_size:
-		var platform_length := randi_range(platform_length_range.x, platform_length_range.y)
+		# Calculate platform length and height
+		var platform_length := randi_range(platform_length_range.x, platform_length_range.y) * 50
 		var platform_height := randi_range(platform_height_range.x, platform_height_range.y) * platform_spacing
+
+		# Ensure that current position is far enough from the previous platform's end
+		if current_x_position < previous_platform_end + min_horizontal_gap:
+			# Move the current position further to ensure no overlap
+			current_x_position = previous_platform_end + min_horizontal_gap
 
 		# Randomly select a platform scene
 		var random_platform_scene: PackedScene = platform_scenes[randi_range(0, platform_scenes.size() - 1)]
@@ -62,9 +74,19 @@ func generate_chunk(chunk_id):
 		add_child(platform_instance)
 		platform_instance.position = Vector2(current_x_position, platform_height)
 
-		current_x_position += platform_spacing
+		# Update the position for the next iteration
+		previous_platform_end = current_x_position + platform_length
+		current_x_position += platform_length + randi_range(min_horizontal_gap, max_horizontal_gap)
+
+		# Add some variation to vertical positioning to avoid stacking platforms too close vertically
+		var next_platform_height_offset = randi_range(-min_vertical_gap, min_vertical_gap)
+		platform_height += next_platform_height_offset
+
+		# Ensure platform height is within a reasonable range (adjust as needed)
+		platform_height = clamp(platform_height, -200, 200)
 
 	active_chunks[chunk_id] = true
+
 
 func remove_chunk(chunk_id):
 	# Remove all child nodes within the chunk range

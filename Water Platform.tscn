@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://swre1fotgw5o" path="res://Tileset/bridge9.png" id="9_osg3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e83g7"]
-size = Vector2(78.6111, 11.7222)
+size = Vector2(78.6111, 14.2769)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuche"]
 size = Vector2(16, 31.9444)
@@ -114,7 +114,7 @@ scale = Vector2(1.9, 1.9)
 texture = ExtResource("3_p36fi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(26.8421, 35.2632)
+position = Vector2(26.8421, 34.0894)
 scale = Vector2(1.9, 1.9)
 shape = SubResource("RectangleShape2D_e83g7")
 
