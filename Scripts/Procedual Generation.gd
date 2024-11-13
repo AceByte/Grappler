@@ -3,8 +3,8 @@ extends Node2D
 @export var platform_scene: PackedScene
 @export var chunk_size := 1000
 @export var platform_length_range := Vector2i(3, 10)
-@export var platform_height_range := Vector2i(-3, 2)
-@export var platform_spacing := 180
+@export var platform_height_range := Vector2i(-2, 2)
+@export var platform_spacing := 300
 
 @export var platform_scenes := [
 	preload("res://Small Platform.tscn"),

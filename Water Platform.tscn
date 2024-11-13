@@ -10,115 +10,130 @@
 [ext_resource type="Texture2D" uid="uid://ck0e0bvp5vut4" path="res://Tileset/bridge6.png" id="8_sfpaf"]
 [ext_resource type="Texture2D" uid="uid://swre1fotgw5o" path="res://Tileset/bridge9.png" id="9_osg3i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slonn"]
-size = Vector2(14, 30.5556)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e83g7"]
-size = Vector2(63, 11)
+size = Vector2(78.6111, 11.7222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuche"]
 size = Vector2(16, 31.9444)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slonn"]
+size = Vector2(16.0665, 31.856)
+
 [node name="StaticBody2D" type="StaticBody2D"]
 position = Vector2(112, 50)
-scale = Vector2(1.5, 1.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-32.6667, 0.25)
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_slonn")
+scale = Vector2(1.9, 1.9)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-4.76837e-06, 0)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.9, 1.9)
 format = 2
 
 [node name="Water1" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-11.3333, -11.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-3.68421, -21.5789)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("1_ke0k0")
 
 [node name="Water2" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-9.33334, 12.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(25.8211, 7.86316)
+scale = Vector2(1.96974, 2.10132)
 texture = ExtResource("2_shxjt")
 
 [node name="Water3" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(12.6667, -11.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(26, -21.579)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("1_ke0k0")
 
 [node name="Water4" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(14, 12.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-4, 7.86297)
+scale = Vector2(1.9, 2.0355)
+texture = ExtResource("2_shxjt")
+
+[node name="Water5" type="Sprite2D" parent="."]
+position = Vector2(55.2632, -21.5789)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("1_ke0k0")
+
+[node name="Water6" type="Sprite2D" parent="."]
+position = Vector2(56.0842, 8.12631)
+scale = Vector2(1.87105, 2.00263)
 texture = ExtResource("2_shxjt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(36.6667, -35.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(85.2632, -51.0526)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("3_p36fi")
 
 [node name="Bridge7" type="Sprite2D" parent="."]
-position = Vector2(36.6667, -11.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(85.2632, -20.5263)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("4_es6lv")
 
 [node name="Bridge8" type="Sprite2D" parent="."]
-position = Vector2(39.3333, 36.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(86.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("5_yprav")
 
 [node name="Bridge1" type="Sprite2D" parent="."]
-position = Vector2(36.6667, 12.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(85.2632, 9.47368)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("6_icnym")
 flip_v = true
 
 [node name="Bridge2" type="Sprite2D" parent="."]
-position = Vector2(15.3333, 36.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(26.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("7_j6us7")
 
 [node name="Bridge6" type="Sprite2D" parent="."]
-position = Vector2(-8.66667, 36.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-3.68421, 39.4737)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("8_sfpaf")
 
 [node name="Bridge10" type="Sprite2D" parent="."]
-position = Vector2(-32.6667, 36.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-33.6842, 39.4737)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("9_osg3i")
 
 [node name="Bridge3" type="Sprite2D" parent="."]
-position = Vector2(-32, 13.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-32.6316, 8.94737)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("6_icnym")
 flip_v = true
 
 [node name="Grass5" type="Sprite2D" parent="."]
-position = Vector2(-32, -34.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-33.1579, -51.5789)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("3_p36fi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(2.66667, 33.3333)
-scale = Vector2(1.5, 1.5)
+position = Vector2(26.8421, 35.2632)
+scale = Vector2(1.9, 1.9)
 shape = SubResource("RectangleShape2D_e83g7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(36.6667, 0.625)
-scale = Vector2(1.5, 1.5)
+position = Vector2(85.7895, -5.26316)
+scale = Vector2(1.9, 1.9)
 shape = SubResource("RectangleShape2D_cuche")
 
 [node name="Bridge9" type="Sprite2D" parent="."]
-position = Vector2(-32, -10.6667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-33.1579, -21.0526)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("4_es6lv")
+
+[node name="Bridge11" type="Sprite2D" parent="."]
+position = Vector2(56.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("8_sfpaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-33.1579, -6.05263)
+scale = Vector2(1.9, 1.9)
+shape = SubResource("RectangleShape2D_slonn")
