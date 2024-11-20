@@ -1,4 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://0tn0nxxa5qm6"]
+[gd_scene load_steps=8 format=3 uid="uid://0tn0nxxa5qm6"]
+
+[ext_resource type="Script" path="res://slowmo.gd" id="1_6qb8u"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ey8gj"]
+[ext_resource type="Script" path="res://Scripts/ForceVisualizer.gd" id="2_qilfm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
 
@@ -12,6 +16,7 @@ size = Vector2(64, 64)
 size = Vector2(64, 64)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_6qb8u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -26,6 +31,7 @@ shape = SubResource("RectangleShape2D_puy1f")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, -61)
+script = ExtResource("1_ey8gj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_knyyw")
@@ -37,6 +43,34 @@ texture = SubResource("PlaceholderTexture2D_omw3i")
 zoom = Vector2(0.74, 0.74)
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="ForceVisualizer" type="Node2D" parent="CharacterBody2D"]
+z_index = 8
+script = ExtResource("2_qilfm")
+
+[node name="GravityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ActualGravityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VelocityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DirectionLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GrappleLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StressLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(1132, -424)

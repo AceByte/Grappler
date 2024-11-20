@@ -11,8 +11,6 @@ extends Node2D
 	preload("res://Big_Platform.tscn")
 ]
 
-
-
 var active_chunks := {}
 
 func _ready():
