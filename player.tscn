@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxyjg4cs3vqj2"]
+[gd_scene load_steps=6 format=3 uid="uid://dxyjg4cs3vqj2"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ey8gj"]
 [ext_resource type="PackedScene" uid="uid://5xsi7mq15f5l" path="res://grappling_hook.tscn" id="3_sl6gt"]
@@ -8,19 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha07v"]
 size = Vector2(64, 64)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5ntgp"]
-size = Vector2(64, 64)
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -61)
 script = ExtResource("1_ey8gj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ha07v")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
-texture = SubResource("PlaceholderTexture2D_5ntgp")
 
 [node name="GrapplingHook" parent="." instance=ExtResource("3_sl6gt")]
 

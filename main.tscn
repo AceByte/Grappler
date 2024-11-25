@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0tn0nxxa5qm6"]
+[gd_scene load_steps=7 format=3 uid="uid://0tn0nxxa5qm6"]
 
 [ext_resource type="Script" path="res://Scripts/Procedual Generation and slowmo.gd" id="1_kjsad"]
 [ext_resource type="PackedScene" uid="uid://dxyjg4cs3vqj2" path="res://player.tscn" id="2_xyvnt"]
+[ext_resource type="Texture2D" uid="uid://crg0mj4mg0swb" path="res://lerz_buf.png" id="3_b8pxj"]
 [ext_resource type="PackedScene" uid="uid://bdbx0w4ckx0kk" path="res://physics_formulas.tscn" id="3_p7uxf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
@@ -29,6 +30,9 @@ shape = SubResource("RectangleShape2D_puy1f")
 zoom = Vector2(0.75, 0.75)
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_b8pxj")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(1132, -424)
