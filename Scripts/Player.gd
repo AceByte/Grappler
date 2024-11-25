@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var score_manager = $ScoreManager
+
 @export var max_speed = 300.0
 @export var jump_velocity = -400.0
 @export var acceleration_rate := 1000.0
@@ -37,6 +39,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	# Handle ceiling behavior
+	score_manager.update_score(global_position)
+
 	if is_on_ceiling():
 		velocity.y *= -1
 	

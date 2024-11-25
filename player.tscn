@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://dxyjg4cs3vqj2"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://dxyjg4cs3vqj2"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ey8gj"]
 [ext_resource type="PackedScene" uid="uid://5xsi7mq15f5l" path="res://grappling_hook.tscn" id="3_sl6gt"]
 [ext_resource type="PackedScene" uid="uid://cek6ys2prooss" path="res://force_visualizer.tscn" id="3_tkouo"]
 [ext_resource type="PackedScene" uid="uid://ctetv6gj0kaa1" path="res://trajectory_line.tscn" id="4_7unpx"]
+[ext_resource type="Script" path="res://ScoreManager.gd" id="5_vrfgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha07v"]
 size = Vector2(64, 64)
@@ -23,3 +28,13 @@ z_index = 1
 [node name="TrajectoryLine" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_7unpx")]
 z_index = 1
 player = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ScoreManager" type="Node" parent="." node_paths=PackedStringArray("score_label")]
+script = ExtResource("5_vrfgh")
+score_label = NodePath("../CanvasLayer/ScoreLabel")
