@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://durafyvyfcuop"]
+
+[ext_resource type="Texture2D" uid="uid://c544yqlg5p2l8" path="res://Tileset/water1.png" id="1_ke0k0"]
+[ext_resource type="Texture2D" uid="uid://v5ir8inf4e72" path="res://Tileset/water2.png" id="2_shxjt"]
+[ext_resource type="Texture2D" uid="uid://usfg3et6h0a" path="res://Tileset/grass3.png" id="3_p36fi"]
+[ext_resource type="Texture2D" uid="uid://bm6vso2en366l" path="res://Tileset/bridge7.png" id="4_es6lv"]
+[ext_resource type="Texture2D" uid="uid://dig4j1k078ydo" path="res://Tileset/bridge8.png" id="5_yprav"]
+[ext_resource type="Texture2D" uid="uid://chkmelckle5q0" path="res://Tileset/bridge1.png" id="6_icnym"]
+[ext_resource type="Texture2D" uid="uid://cpfgpfv2rox3v" path="res://Tileset/bridge2.png" id="7_j6us7"]
+[ext_resource type="Texture2D" uid="uid://ck0e0bvp5vut4" path="res://Tileset/bridge6.png" id="8_sfpaf"]
+[ext_resource type="Texture2D" uid="uid://swre1fotgw5o" path="res://Tileset/bridge9.png" id="9_osg3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e83g7"]
+size = Vector2(78.6111, 14.2769)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuche"]
+size = Vector2(16, 31.9444)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slonn"]
+size = Vector2(16.0665, 31.856)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(112, 50)
+scale = Vector2(1.9, 1.9)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-4.76837e-06, 0)
+scale = Vector2(1.9, 1.9)
+format = 2
+
+[node name="Water1" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-3.68421, -21.5789)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("1_ke0k0")
+
+[node name="Water2" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(25.8211, 7.86316)
+scale = Vector2(1.96974, 2.10132)
+texture = ExtResource("2_shxjt")
+
+[node name="Water3" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(26, -21.579)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("1_ke0k0")
+
+[node name="Water4" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-4, 7.86297)
+scale = Vector2(1.9, 2.0355)
+texture = ExtResource("2_shxjt")
+
+[node name="Water5" type="Sprite2D" parent="."]
+position = Vector2(55.2632, -21.5789)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("1_ke0k0")
+
+[node name="Water6" type="Sprite2D" parent="."]
+position = Vector2(56.0842, 8.12631)
+scale = Vector2(1.87105, 2.00263)
+texture = ExtResource("2_shxjt")
+
+[node name="Grass3" type="Sprite2D" parent="."]
+position = Vector2(85.2632, -51.0526)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("3_p36fi")
+
+[node name="Bridge7" type="Sprite2D" parent="."]
+position = Vector2(85.2632, -20.5263)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("4_es6lv")
+
+[node name="Bridge8" type="Sprite2D" parent="."]
+position = Vector2(86.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("5_yprav")
+
+[node name="Bridge1" type="Sprite2D" parent="."]
+position = Vector2(85.2632, 9.47368)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("6_icnym")
+flip_v = true
+
+[node name="Bridge2" type="Sprite2D" parent="."]
+position = Vector2(26.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("7_j6us7")
+
+[node name="Bridge6" type="Sprite2D" parent="."]
+position = Vector2(-3.68421, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("8_sfpaf")
+
+[node name="Bridge10" type="Sprite2D" parent="."]
+position = Vector2(-33.6842, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("9_osg3i")
+
+[node name="Bridge3" type="Sprite2D" parent="."]
+position = Vector2(-32.6316, 8.94737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("6_icnym")
+flip_v = true
+
+[node name="Grass5" type="Sprite2D" parent="."]
+position = Vector2(-33.1579, -51.5789)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("3_p36fi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(26.8421, 34.0894)
+scale = Vector2(1.9, 1.9)
+shape = SubResource("RectangleShape2D_e83g7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(85.7895, -5.26316)
+scale = Vector2(1.9, 1.9)
+shape = SubResource("RectangleShape2D_cuche")
+
+[node name="Bridge9" type="Sprite2D" parent="."]
+position = Vector2(-33.1579, -21.0526)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("4_es6lv")
+
+[node name="Bridge11" type="Sprite2D" parent="."]
+position = Vector2(56.3158, 39.4737)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("8_sfpaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-33.1579, -6.05263)
+scale = Vector2(1.9, 1.9)
+shape = SubResource("RectangleShape2D_slonn")
