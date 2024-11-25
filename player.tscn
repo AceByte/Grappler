@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=6 format=3 uid="uid://dxyjg4cs3vqj2"]
-=======
-[gd_scene load_steps=8 format=3 uid="uid://dxyjg4cs3vqj2"]
->>>>>>> Stashed changes
+[gd_scene load_steps=7 format=3 uid="uid://d28wj3v5lstea"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ey8gj"]
 [ext_resource type="PackedScene" uid="uid://5xsi7mq15f5l" path="res://grappling_hook.tscn" id="3_sl6gt"]

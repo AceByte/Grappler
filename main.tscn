@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://0tn0nxxa5qm6"]
 
 [ext_resource type="Script" path="res://Scripts/Procedual Generation and slowmo.gd" id="1_kjsad"]
-[ext_resource type="PackedScene" uid="uid://dxyjg4cs3vqj2" path="res://player.tscn" id="2_xyvnt"]
+[ext_resource type="PackedScene" uid="uid://d28wj3v5lstea" path="res://player.tscn" id="2_xyvnt"]
 [ext_resource type="Texture2D" uid="uid://crg0mj4mg0swb" path="res://lerz_buf.png" id="3_b8pxj"]
 [ext_resource type="PackedScene" uid="uid://bdbx0w4ckx0kk" path="res://physics_formulas.tscn" id="3_p7uxf"]
 
