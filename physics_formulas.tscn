@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdbx0w4ckx0kk"]
 
-[ext_resource type="Script" path="res://formulas.gd" id="1_mn1uk"]
+[ext_resource type="Script" path="res://Scripts/formulas.gd" id="1_mn1uk"]
 
 [node name="Formler" type="Control"]
 layout_mode = 3
