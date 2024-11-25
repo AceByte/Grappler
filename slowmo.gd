@@ -1,17 +1,21 @@
 extends Node2D
 
+@onready var physics_formulas = $UI/Formler  # Assuming PhysicsFormulas is a child of this node
+var is_slow_motion := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if not physics_formulas:
+		push_warning("PhysicsFormulas node not found. Make sure it's a child of this node.")
 
 # This function toggles slow motion on and off
 func toggle_slowmotion():
-	if Engine.time_scale == 1:
-		Engine.time_scale = 0.5  # Slow motion (20% of normal speed)
+	is_slow_motion = not is_slow_motion
+	if is_slow_motion:
+		Engine.time_scale = 0.5  # Slow motion (50% of normal speed)
+		physics_formulas.toggle_formulas(true)  # Show formulas in slow motion
 	else:
 		Engine.time_scale = 1  # Normal speed
-
+		physics_formulas.toggle_formulas(false)  # Hide formulas in normal speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

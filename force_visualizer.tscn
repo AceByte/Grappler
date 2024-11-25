@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cek6ys2prooss"]
+
+[ext_resource type="Script" path="res://Scripts/ForceVisualizer.gd" id="1_7iqgd"]
+
+[node name="ForceVisualizer" type="Node2D"]
+script = ExtResource("1_7iqgd")
+
+[node name="GravityLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ActualGravityLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VelocityLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DirectionLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GrappleLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StressLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

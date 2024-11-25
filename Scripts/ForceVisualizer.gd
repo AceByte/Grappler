@@ -88,7 +88,7 @@ func _draw():
 
 	# Draw grapple force arrow in blue if grappling
 	if grapple_force != Vector2.ZERO:
-		draw_arrow(Vector2.ZERO, grapple_force * 0.1, Color(0.5, 0, 0))  # Scale up for longer arrow
+		draw_arrow(Vector2.ZERO, grapple_force * 0.1, Color(1, 0.5, 0))  # Scale up for longer arrow
 		# Position the label next to the grapple force arrow
 		$GrappleLabel.position = grapple_force * 0.2 + current_label_position
 		$GrappleLabel.text = "g_f: %.2f N" % grapple_force.length()  # Added units (Newtons)

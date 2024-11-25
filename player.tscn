@@ -1,86 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://0tn0nxxa5qm6"]
+[gd_scene load_steps=7 format=3 uid="uid://dxyjg4cs3vqj2"]
 
-[ext_resource type="Script" path="res://slowmo.gd" id="1_6qb8u"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ey8gj"]
-[ext_resource type="Script" path="res://Scripts/ForceVisualizer.gd" id="2_qilfm"]
+[ext_resource type="PackedScene" uid="uid://5xsi7mq15f5l" path="res://grappling_hook.tscn" id="3_sl6gt"]
+[ext_resource type="PackedScene" uid="uid://cek6ys2prooss" path="res://force_visualizer.tscn" id="3_tkouo"]
+[ext_resource type="PackedScene" uid="uid://ctetv6gj0kaa1" path="res://trajectory_line.tscn" id="4_7unpx"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_puy1f"]
-size = Vector2(1495, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_knyyw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha07v"]
 size = Vector2(64, 64)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_omw3i"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5ntgp"]
 size = Vector2(64, 64)
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_6qb8u")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0.500022, 0)
-scale = Vector2(1495, 20)
-texture = SubResource("PlaceholderTexture2D_evqgi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_puy1f")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -61)
 script = ExtResource("1_ey8gj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_knyyw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ha07v")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = SubResource("PlaceholderTexture2D_omw3i")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = SubResource("PlaceholderTexture2D_5ntgp")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.74, 0.74)
-editor_draw_limits = true
-editor_draw_drag_margin = true
+[node name="GrapplingHook" parent="." instance=ExtResource("3_sl6gt")]
 
-[node name="ForceVisualizer" type="Node2D" parent="CharacterBody2D"]
-z_index = 8
-script = ExtResource("2_qilfm")
+[node name="ForceVisualizer" parent="." instance=ExtResource("3_tkouo")]
+z_index = 1
 
-[node name="GravityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ActualGravityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="VelocityLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="DirectionLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="GrappleLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="StressLabel" type="Label" parent="CharacterBody2D/ForceVisualizer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1132, -424)
-scale = Vector2(22.3309, 2.35409)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(0.500022, 0)
-scale = Vector2(1495, 20)
-texture = SubResource("PlaceholderTexture2D_evqgi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_puy1f")
+[node name="TrajectoryLine" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_7unpx")]
+z_index = 1
+player = NodePath("..")

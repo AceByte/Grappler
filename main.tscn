@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://0tn0nxxa5qm6"]
+
+[ext_resource type="Script" path="res://slowmo.gd" id="1_u1bn2"]
+[ext_resource type="PackedScene" uid="uid://dxyjg4cs3vqj2" path="res://player.tscn" id="2_xyvnt"]
+[ext_resource type="PackedScene" uid="uid://bdbx0w4ckx0kk" path="res://physics_formulas.tscn" id="3_p7uxf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_evqgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puy1f"]
+size = Vector2(1495, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u1bn2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0.500022, 0)
+scale = Vector2(1495, 20)
+texture = SubResource("PlaceholderTexture2D_evqgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_puy1f")
+
+[node name="Player" parent="." instance=ExtResource("2_xyvnt")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1132, -424)
+scale = Vector2(22.3309, 2.35409)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(0.500022, 0)
+scale = Vector2(1495, 20)
+texture = SubResource("PlaceholderTexture2D_evqgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_puy1f")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Formler" parent="UI" instance=ExtResource("3_p7uxf")]

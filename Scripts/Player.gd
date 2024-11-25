@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var deceleration_rate := 2000.0
 @export var friction_coefficient := 0.2
 @export var air_resistance_coefficient := 0.02
-@export var max_grapple_length := 500.0
+@export var max_grapple_length := 100000.0
 @export var min_grapple_length := 50.0
 @export var rope_adjust_speed := 100.0
 @export var swing_force := 1000.0
@@ -21,6 +21,8 @@ var grapple_rope: Line2D
 var current_rope_length: float = 0.0
 var is_swinging: bool = false
 var launch_direction: Vector2 = Vector2.ZERO
+
+@onready var trajectory_line = $TrajectoryLine  # Reference to the trajectory line node
 
 func _ready():
 	# Setup the grapple rope and force visualizer
@@ -46,6 +48,12 @@ func _physics_process(delta: float) -> void:
 		handle_grappling(delta)
 	else:
 		handle_normal_movement(delta)
+
+	# Update the trajectory line when in the air
+	if not is_on_floor():
+		trajectory_line.show_trajectory()
+	else:
+		trajectory_line.clear_trajectory()  # Clear trajectory when on the ground
 
 	# Process user input for grappling
 	if Input.is_action_just_pressed("ui_accept"):
@@ -99,13 +107,13 @@ func handle_normal_movement(delta: float):
 	if is_on_floor():
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		var friction = friction_coefficient * gravity
+		velocity.x = clamp(velocity.x, -max_speed, max_speed)
 		if abs(velocity.x) > friction * delta:
 			velocity.x -= friction * delta * sign(velocity.x)
 		else:
 			velocity.x = 0
 
 	velocity *= 1.0 - (air_resistance_coefficient * delta)
-	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 
 # Handle grappling mechanics (rope, swing force, etc.)
 func handle_grappling(delta: float):
@@ -125,7 +133,7 @@ func handle_grappling(delta: float):
 	# Set the stress force for the visualizer
 	force_visualizer.stress_force = rope_normal * stretch_amount * rope_stretch_factor
 	
-	if is_swinging and position.y > grapple_point.y + ((total_rope_length / 3) * 2):
+	if is_swinging and position.y > grapple_point.y + ((total_rope_length / 4)*3):
 		if input_direction != 0:
 			velocity += tangent * input_direction * swing_force * delta
 
@@ -150,7 +158,7 @@ func toggle_grapple():
 func fire_grapple():
 	var mouse_pos = get_global_mouse_position()
 	var direction = (mouse_pos - global_position).normalized()
-	var max_distance = 1000
+	var max_distance = 100000
 	
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + direction * max_distance)

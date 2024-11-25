@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctetv6gj0kaa1"]
+
+[ext_resource type="Script" path="res://trajectory_line.gd" id="1_m43ye"]
+
+[node name="TrajectoryLine" type="Node2D"]
+script = ExtResource("1_m43ye")
+
+[node name="Line2D" type="Line2D" parent="."]
